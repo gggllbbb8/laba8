@@ -1,0 +1,21 @@
+def main():
+    n=int(input("введите кол-во элементов N:"))
+    print(f"введите {n}чисел:")
+    arr=[]
+    while len(arr)<n:
+        line=input().strip()
+        if line:
+            parts=line.split()
+            for p in parts:
+                arr.append(float(p))
+    d=float(input("введите число d"))
+    sr=sum(arr)/n
+    count=0
+    for num in arr:
+        if abs(num-sr)<=d:
+            count+=1
+    print(f"ср.арефметическое всех элементов:{sr:.4f}")
+    print(f"величина d:{d}")
+    print('кол-во элементов отлич от ср.арефметич. не более 'f' чем на {d}: {count}')
+if __name__=="__main__":
+    main()
