@@ -1,0 +1,24 @@
+n=int(input('введите n:'))
+size=2*n+1
+print(f'ввведите матрицу([size} строк, по {size} чисел):')
+matrix=[]
+for i in range(size):
+    row=list(map(int,input().split()))
+    matrix.append(row)
+center=n
+print("\nрезултат(ссуммы границ):")
+for k in range(n+1):
+    order=2*k+1
+    sm=0
+    if k==0:
+        sm=matrix=[center][center]
+    else:
+        r_min=center-k
+        r_max=center+k
+        for j in range(r_min,r_max+1):
+            sm+=matrix[r_min][j]
+            sm+=matrix[r_max][j]
+        for j in range(r_min+1,r_max):
+            sm+=matrix[i][r_min]
+            sm+=matrix[i][r_max]
+    print(f"{order}*{order}:{sm}")
